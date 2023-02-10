@@ -40,7 +40,7 @@ typedef struct HashToBinaryTree {
      tree of sequences that share this hash bucket. */
   uint32_t buckets_[BUCKET_SIZE];
 
-  /* A position used to mark a non-existent sequence, i.e. a tree is empty if
+  /* A position used to mark a nonexistent sequence, i.e. a tree is empty if
      its root is at invalid_pos_ and a node is a leaf if both its children
      are at invalid_pos_. */
   uint32_t invalid_pos_;
