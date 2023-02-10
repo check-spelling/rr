@@ -43,7 +43,7 @@ static void FN(Initialize)(
   self->ha = 0;
   self->hb = 0;
   self->params = params;
-  /* TODO: Initialize of the hashers is defered to Prepare (and params
+  /* TODO: Initialize of the hashers is deferred to Prepare (and params
      remembered here) because we don't get the one_shot and input_size params
      here that are needed to know the memory size of them. Instead provide
      those params to all hashers FN(Initialize) */
