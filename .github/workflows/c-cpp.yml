@@ -14,7 +14,7 @@ jobs:
     - name: dependencies
       run: |
         sudo apt-get update
-        DEBIAN_FRONTEND=noninteractive sudo apt-get -y install ccache cmake make g++-multilib gdb pkg-config realpath python-pexpect manpages-dev git ninja-build capnproto libcapn
+        DEBIAN_FRONTEND=noninteractive sudo apt-get -y install ccache cmake make g++-multilib gdb pkg-config python-pexpect-doc manpages-dev git ninja-build capnproto
     - name: configure
       run: ./configure
     - name: make
