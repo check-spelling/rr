@@ -20,9 +20,7 @@ jobs:
           ninja-build capnproto libcapnp-dev zlib1g-dev
     - name: configure
       run: ./configure
-    - name: make
-      run: make
+    - name: cmake
+      run: cmake --build .
     - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      run: ctest -j$(nproc) -VV
