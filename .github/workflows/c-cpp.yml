@@ -15,12 +15,12 @@ jobs:
       run: |
         sudo apt-get update
         DEBIAN_FRONTEND=noninteractive sudo apt-get -y install \
-          ccache cmake make g++-multilib gdb \
-          pkg-config coreutils python3-pexpect manpages-dev git \
-          ninja-build capnproto libcapnp-dev zlib1g-dev
-    - name: configure
-      run: ./configure
+          ccache cmake g++-multilib gdb \
+          manpages-dev \
+          ninja-build capnproto libcapnp-dev
     - name: cmake
-      run: cmake --build .
+      run: |
+        CC=clang CXX=clang++ cmake -G Ninja 
+        cmake --build .
     - name: make check
       run: ctest -j$(nproc) -VV
