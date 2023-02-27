@@ -5,8 +5,8 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      name: commits
-      description: git range to include
+      commits:
+        description: git range to include
 
 jobs:
   build:
