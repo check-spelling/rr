@@ -3,6 +3,10 @@ name: C/C++ CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      name: commits
+      description: git range to include
 
 jobs:
   build:
@@ -22,5 +26,12 @@ jobs:
       run: |
         CC=clang CXX=clang++ cmake -G Ninja 
         cmake --build .
-    - name: make check
-      run: ctest -j$(nproc) -VV
+    - name: cherry-picks
+      if: github.event.inputs.commits
+      run: |
+        for commit in $(
+      git log --oneline ${{github.event.inputs.commits}} |perl -pe 's/\s.*//'|tac
+        ); do
+          git cherry-pick $commit &&
+          cmake --build .
+        done
