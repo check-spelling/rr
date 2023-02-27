@@ -30,7 +30,7 @@ jobs:
       if: github.event.inputs.commits
       run: |
         for commit in $(
-      git log --oneline ${{github.event.inputs.commits}} |perl -pe 's/\s.*//'|tac
+          git log --oneline ${{github.event.inputs.commits}} |perl -pe 's/\s.*//'|tac
         ); do
           git cherry-pick $commit &&
           cmake --build .
